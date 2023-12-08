@@ -17,7 +17,14 @@ class Circle {
 }
 
 function calculateCircle() {
-    const radius = parseFloat(document.getElementById('circle-radius').value);
+    const radiusInput = document.getElementById('circle-radius');
+    const radius = parseFloat(radiusInput.value);
+
+    if (isNaN(radius) || radius <= 0) {
+        alert('Некоректно введений радіус. Радіус повинен бути більше за нуль.');
+        return;
+    }
+
     const point = document.getElementById('circle-point').value.split(',').map(parseFloat);
     const circle = new Circle(radius);
 

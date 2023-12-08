@@ -26,6 +26,10 @@ function calculateRing() {
     try {
         const outerRadius = parseFloat(document.getElementById('outer-radius').value);
         const innerRadius = parseFloat(document.getElementById('inner-radius').value);
+        if (isNaN(outerRadius) || outerRadius <= 0 || isNaN(innerRadius) || innerRadius) {
+            alert('Некоректно введені дані. Значення радіусів повинні бути більше за нуль.');
+            return;
+        }
         const point = document.getElementById('ring-point').value.split(',').map(parseFloat);
         const ring = new Ring(outerRadius, innerRadius);
 
