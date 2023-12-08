@@ -26,6 +26,10 @@ function calculateCircle() {
     }
 
     const point = document.getElementById('circle-point').value.split(',').map(parseFloat);
+    if (isNaN(point)){
+        alert('Неправильно введені значення точок');
+        return;
+    }
     const circle = new Circle(radius);
 
     document.getElementById('circle-result').innerText = `

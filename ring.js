@@ -31,6 +31,10 @@ function calculateRing() {
             return;
         }
         const point = document.getElementById('ring-point').value.split(',').map(parseFloat);
+        if (isNaN(point)){
+            alert('Неправильно введені значення точок');
+            return;
+        }
         const ring = new Ring(outerRadius, innerRadius);
 
         const ringArea = ring.calculateRingArea();
